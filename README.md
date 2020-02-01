@@ -1,2 +1,4 @@
 # groovy
-For Jenkins
+
+此處には**Jenkins**で使用するgroovyスクリプトを格納します。
+特定の機種に依存する記述は避けて下さい。
