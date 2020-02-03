@@ -5,7 +5,7 @@ pipeline {
         stage ('DoxyGen') {
             steps {
                 sh '''
-                    cd "/home/ozawa3/GitHub/py3"
+                    cd "/home/ozawa3/pysrc"
                     pwd
                     sudo doxygen
                 '''
