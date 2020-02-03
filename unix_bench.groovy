@@ -2,13 +2,14 @@
 pipeline {
     agent any
     stages {
-        stage('UnixBench') {
+        stage ('UnixBench') {
             steps {
-                dir("/home/ozawa3/UnixBench") {
-                    sh "pwd"
-                    sh'sudo ./Run'
-                } // dir("/home/ozawa3/UnixBench") {
+                sh '''
+                    cd "/home/ozawa3/UnixBench"
+                    pwd
+                    //sudo ./Run -i 5
+                '''
             } // steps {
-        } // stage('upgrade') {
+        } // stage ('upgrade') {
     } // stages {
 } // pipeline {
