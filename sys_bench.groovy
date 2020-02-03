@@ -14,8 +14,11 @@ pipeline {
             // 電子書類入出力性能に關する試驗
             steps {
                 sh '''
-                    sysbench --test=fileio run > fileio_info.txt
+                    sysbench --test=fileio --file-test-mode=seqwr run > fileio_seq_info.txt
+                    sysbench --test=fileio --file-test-mode=rndrw run > fileio_rnd_info.txt
                 '''
+                // seqrewr  順列讀書き
+                // rndrw    出鱈目讀書き
             } // steps {
         } // stage ('fileio') {
         stage ('memory') {
