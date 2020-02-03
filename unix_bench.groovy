@@ -7,8 +7,8 @@ pipeline {
                 sh '''
                     cd "/home/ozawa3/UnixBench"
                     pwd
-                    //sudo ./Run -i 5
                 '''
+                    //sudo ./Run -i 5
             } // steps {
         } // stage ('upgrade') {
     } // stages {
