@@ -15,7 +15,9 @@ pipeline {
             steps {
                 sh '''
                     sysbench --test=fileio --file-test-mode=seqwr run > fileio_seq_info.txt
+                    sysbench --test=fileio cleanup
                     sysbench --test=fileio --file-test-mode=rndrw run > fileio_rnd_info.txt
+                    sysbench --test=fileio cleanup
                 '''
                 // seqrewr  順列讀書き
                 // rndrw    出鱈目讀書き
