@@ -14,9 +14,11 @@ pipeline {
             // 電子書類入出力性能に關する試驗
             steps {
                 sh '''
-                    sysbench --test=fileio --file-test-mode=seqwr run > fileio_seq_info.txt
+                    sysbench --test=fileio --file-num=4 --file-total-size=32M prepare
+                    sysbench --test=fileio --file-num=4 --file-total-size=32M --events=150 --file-test-mode=seqwr run > fileio_seq_info.txt
                     sysbench --test=fileio cleanup
-                    sysbench --test=fileio --file-test-mode=rndrw run > fileio_rnd_info.txt
+                    sysbench --test=fileio --file-num=4 --file-total-size=32M prepare
+                    sysbench --test=fileio --file-num=4 --file-total-size=32M --events=150 --file-test-mode=rndrw run > fileio_rnd_info.txt
                     sysbench --test=fileio cleanup
                 '''
                 // seqrewr  順列讀書き
